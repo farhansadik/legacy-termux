@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 #!/usr/bin/bash 
 
-version=0.13 # on test
+version=0.14 # on test
 
 function package_list() {
 	# packages 
@@ -51,11 +51,11 @@ function mirror_setup() {
 	# pkg update && pkg upgrade;
 }
 
-# termux 101 tested on 7.1 			[ok]
-# termux 83 not supported on 7.1	[failed]
-# termux 95 tested on 7.1			[ok]
-
-#if ccli; then 
-mirror_setup
+if ccli; then mirror_setup; fi
 pkg update;
+echo " [*] moving termux color configuration"
+cp -r .termux $HOME
+echo " [*] installation has been completed"
+echo " [*] now you can install any packages from termux repository"
+echo " [*] thank you"
 termux-reload-settings
