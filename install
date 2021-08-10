@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 #!/usr/bin/bash 
 
-version=0.12 # on test
+version=0.13 # on test
 
 function package_list() {
 	# packages 
@@ -47,7 +47,7 @@ function mirror_setup() {
 	# now we test one by one
 	echo "deb https://termux.mentality.rip/termux-main/ stable main" > $PREFIX/etc/apt/sources.list
 	echo "deb https://packages.termux.org/apt/termux-games games stable" > $PREFIX/etc/apt/sources.list.d/game.list
-	# echo "deb https://packages.termux.org/apt/termux-science science stable" > $PREFIX/etc/apt/sources.list.d/science.list
+	echo "deb https://packages.termux.org/apt/termux-science science stable" > $PREFIX/etc/apt/sources.list.d/science.list
 	# pkg update && pkg upgrade;
 }
 
