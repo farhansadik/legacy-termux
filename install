@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 #!/usr/bin/bash 
 
-version=0.14 # on test
+version=0.15 # beta 
 
 function package_list() {
 	# packages 
@@ -43,8 +43,7 @@ function ccli() {
 
 function mirror_setup() {
 
-	# mirror patch (for test)
-	# now we test one by one
+	# mirror patch 
 	echo "deb https://termux.mentality.rip/termux-main/ stable main" > $PREFIX/etc/apt/sources.list
 	echo "deb https://packages.termux.org/apt/termux-games games stable" > $PREFIX/etc/apt/sources.list.d/game.list
 	echo "deb https://packages.termux.org/apt/termux-science science stable" > $PREFIX/etc/apt/sources.list.d/science.list
@@ -59,3 +58,5 @@ echo " [*] installation has been completed"
 echo " [*] now you can install any packages from termux repository"
 echo " [*] thank you"
 termux-reload-settings
+
+# farhan sadik (august 2021)
