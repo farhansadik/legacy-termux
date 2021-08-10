@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 #!/usr/bin/bash 
 
-version=0.7 # on test
+version=0.8 # on test
 
 function package_list() {
 	# packages 
@@ -9,13 +9,8 @@ function package_list() {
 }
 
 function ccli() {
-	# cat termux.cfg >> ~/.zshrc
-	# source ~/.zshrc
-	# cat ~/echominal-development/.config/ccli/termux.cfg >> ~/.bashrc
-	# source ~/.bashrc
-	# cp -rv ~/echominal-development/.config $HOME
 
-
+	# add termux color like echominal 
 
 	if [[ `uname -o` == "Android" ]] ; then {
 
@@ -46,7 +41,8 @@ function ccli() {
 
 }
 
-function mirror() {
+function mirror_setup() {
+	
 	# mirror patch (for test)
 
 	echo "deb https://termux.mentality.rip/termux-main/ stable main" > $PREFIX/etc/apt/sources.list
@@ -57,5 +53,5 @@ function mirror() {
 
 # mirror 
 #package_list
-ccli
+if ccli; then mirror_setup
 termux-reload-settings
