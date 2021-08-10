@@ -1,5 +1,5 @@
 ## Legacy Termux
-Repository support for legacy termux (before android 6)
+Repository support for legacy termux
 
 ### Support
 Minimum Supported Android Version **Android 7 and above** <br> 
