@@ -51,6 +51,10 @@ function mirror_setup() {
 	# pkg update && pkg upgrade;
 }
 
+# termux 101 tested on 7.1 			[ok]
+# termux 83 not supported on 7.1	[failed]
+# termux 95 tested on 7.1			[ok]
+
 #if ccli; then 
 mirror_setup
 pkg update;
