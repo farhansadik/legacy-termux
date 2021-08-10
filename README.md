@@ -1,2 +1,3 @@
-# Legacy-Echominal
-Repository support for legacy echominal (old before android 6)
+# Legacy Termux
+Repository support for legacy termux (before android 6)
+
