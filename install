@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 #!/usr/bin/bash 
 
-version=0.8 # on test
+version=0.9 # on test
 
 function package_list() {
 	# packages 
@@ -42,7 +42,7 @@ function ccli() {
 }
 
 function mirror_setup() {
-	
+
 	# mirror patch (for test)
 
 	echo "deb https://termux.mentality.rip/termux-main/ stable main" > $PREFIX/etc/apt/sources.list
@@ -53,5 +53,5 @@ function mirror_setup() {
 
 # mirror 
 #package_list
-if ccli; then mirror_setup
+if ccli; then mirror_setup; fi
 termux-reload-settings
