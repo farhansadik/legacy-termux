@@ -1,0 +1,61 @@
+#!/data/data/com.termux/files/usr/bin/bash 
+#!/usr/bin/bash 
+
+version=0.7 # on test
+
+function package_list() {
+	# packages 
+	pkg install man ranger python python2 git figlet vim cowsay bat termux-tools termux-api zip unzip zsh
+}
+
+function ccli() {
+	# cat termux.cfg >> ~/.zshrc
+	# source ~/.zshrc
+	# cat ~/echominal-development/.config/ccli/termux.cfg >> ~/.bashrc
+	# source ~/.bashrc
+	# cp -rv ~/echominal-development/.config $HOME
+
+
+
+	if [[ `uname -o` == "Android" ]] ; then {
+
+		termux_bash=/data/data/com.termux/files/usr/bin/bash 
+		termux_zsh=/data/data/com.termux/files/usr/bin/zsh
+		termux_cfg=termux.cfg
+		default_shell=`echo "$SHELL"`;
+		ZRC=$HOME/.zshrc
+		BRC=$HOME/.bashrc
+
+		echo "Name of Distribution  : Android OS [Termux Environment]"
+		printf "Searching File        : "
+		if [[ `ls -a | grep $termux_cfg` == $termux_cfg  ]] ; then {
+
+			printf "Found\nDefault Shell         : ";
+			if [[ $default_shell == $termux_bash || $default_shell == $termux_bash ]]; then {
+				printf "Bash\nCloning Configuration : "; cat $termux_cfg >> $BRC; printf "Done\n";
+			} 
+			elif [[ $default_shell == $termux_zsh || $default_shell == $termux_zsh ]]; then {
+				printf "ZSH\nCloning Configuration : "; cat $termux_cfg >> $ZRC; printf "Done\n";
+			} 
+			else printf "Failed\n"; fi
+
+		} else echo "sorry no $input has been found"; 
+		fi
+	}
+	else echo "Failed to detect any distro"; fi
+
+}
+
+function mirror() {
+	# mirror patch (for test)
+
+	echo "deb https://termux.mentality.rip/termux-main/ stable main" > $PREFIX/etc/apt/sources.list
+	echo "deb https://packages.termux.org/apt/termux-games games stable" > $PREFIX/etc/apt/sources.list.d/game.list
+	echo "deb https://packages.termux.org/apt/termux-science science stable" > $PREFIX/etc/apt/sources.list.d/science.list
+	pkg update && pkg upgrade;
+}
+
+# mirror 
+#package_list
+ccli
+termux-reload-settings
